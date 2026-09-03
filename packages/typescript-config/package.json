@@ -18,6 +18,7 @@
   },
   "license": "MIT",
   "author": "Javier Pérez Martín <javier.perez.martin97@gmail.com>",
+  "type": "module",
   "exports": {
     "./base.json": "./base.json",
     "./nestjs.json": "./nestjs.json",
@@ -30,5 +31,8 @@
   ],
   "peerDependencies": {
     "typescript": ">=5.5.0"
+  },
+  "engines": {
+    "node": ">=14"
   }
 }

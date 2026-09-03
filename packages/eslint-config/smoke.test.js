@@ -3,12 +3,36 @@
 // points resolves the whole plugin graph, so a missing dependency fails here
 // rather than in a consumer's repo after publish.
 import assert from 'node:assert/strict';
+import { existsSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 import { Linter } from 'eslint';
 
 import base from './base.js';
 import react from './react.js';
+
+const pkg = JSON.parse(
+  readFileSync(new URL('./package.json', import.meta.url), 'utf8'),
+);
+
+// A subpath that is exported but not in `files` publishes a package whose
+// import 404s — invisible until someone installs it.
+test('every exported subpath ships and exists', () => {
+  const targets = Object.values(pkg.exports);
+  assert.ok(targets.length > 0);
+
+  for (const target of targets) {
+    const file = target.replace(/^\.\//, '');
+    assert.ok(
+      pkg.files.includes(file),
+      `${target} is exported but not in "files"`,
+    );
+    assert.ok(
+      existsSync(new URL(`./${file}`, import.meta.url)),
+      `${target} does not exist`,
+    );
+  }
+});
 
 test('base is a non-empty flat config array', () => {
   assert.ok(Array.isArray(base));
@@ -17,6 +41,9 @@ test('base is a non-empty flat config array', () => {
 
 test('react extends base rather than replacing it', () => {
   assert.ok(Array.isArray(react));
+  // Length alone would pass even if react had thrown base's blocks away and
+  // added more of its own, so check base's blocks are actually still there.
+  assert.deepEqual(react.slice(0, base.length), base);
   assert.ok(react.length > base.length);
 });
 

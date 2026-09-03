@@ -2,7 +2,7 @@
 // variants still point at the base after any edit, and that `files` and
 // `exports` agree — a mismatch publishes a package whose subpath 404s.
 import assert from 'node:assert/strict';
-import { readFileSync } from 'node:fs';
+import { existsSync, readFileSync } from 'node:fs';
 import { test } from 'node:test';
 
 const read = name =>
@@ -10,11 +10,21 @@ const read = name =>
 
 const pkg = read('package.json');
 
-test('every published file is reachable through exports', () => {
-  assert.deepEqual(
-    Object.keys(pkg.exports).sort(),
-    [...pkg.files].sort().map(f => `./${f}`),
-  );
+test('every exported subpath ships and exists', () => {
+  const targets = Object.values(pkg.exports);
+  assert.ok(targets.length > 0);
+
+  for (const target of targets) {
+    const file = target.replace(/^\.\//, '');
+    assert.ok(
+      pkg.files.includes(file),
+      `${target} is exported but not in "files"`,
+    );
+    assert.ok(
+      existsSync(new URL(`./${file}`, import.meta.url)),
+      `${target} does not exist`,
+    );
+  }
 });
 
 test('the variants extend the base', () => {

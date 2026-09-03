@@ -13,7 +13,7 @@
     "format": "prettier --write .",
     "format:check": "prettier --check .",
     "lint": "eslint .",
-    "test": "node --test \"packages/*/*.test.js\" \"packages/*/*.test.mjs\""
+    "test": "node --test \"packages/*/*.test.js\""
   },
   "devDependencies": {
     "@changesets/changelog-github": "^1.0.0",

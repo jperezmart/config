@@ -73,7 +73,7 @@ const config = defineConfig([
   // Config files run by tooling are not part of the TS program; lint them
   // without type-aware rules.
   {
-    files: ['**/*.config.{js,mjs,ts}', 'eslint.config.js'],
+    files: ['**/*.config.{js,mjs,ts}'],
     languageOptions: {
       parserOptions: {
         projectService: false,

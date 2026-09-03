@@ -5,3 +5,11 @@ coverage
 pnpm-lock.yaml
 *.tsbuildinfo
 CHANGELOG.md
+
+# Canon, and the reason this entry exists: `changeset:version` ends in
+# `pnpm format`, so without it this repo's Prettier reflows a file the standard
+# says is "copied verbatim, do not let it diverge" — and it does so on every
+# version run, silently. Hole 3 and the canon are in tension here; this is how
+# the tension is resolved. `release.yml` is a workflow, which Prettier does not
+# touch, so only this file needs it.
+.changeset/config.json

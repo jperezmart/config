@@ -5,10 +5,7 @@
   },
   "access": "public",
   "baseBranch": "main",
-  "changelog": [
-    "@changesets/changelog-github",
-    { "repo": "jperezmart/config" }
-  ],
+  "changelog": ["@changesets/changelog-github", { "repo": "jperezmart/config" }],
   "commit": false,
   "fixed": [],
   "ignore": [],

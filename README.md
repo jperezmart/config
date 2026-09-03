@@ -18,8 +18,10 @@ three subpaths.
 ## Relationship to `package-template`
 
 [`jperezmart/package-template`](https://github.com/jperezmart/package-template)
-is the skeleton; this repo is the scaffolding it points at. The split is worth
-stating plainly, because the two repos are easy to confuse:
+is the skeleton. This repo publishes what the template's _scaffolding layer_
+leaves inline, and is itself an adopter of the template like any other repo — not
+a layer of it. The split is worth stating plainly, because the two are easy to
+confuse:
 
 - **The template's canon is copied.** `release.yml` and `.changeset/config.json`
   physically exist in every repo, because npm binds a trusted publisher to a
