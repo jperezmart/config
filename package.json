@@ -1,0 +1,35 @@
+{
+  "name": "config",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Shared configuration published for the jperezmart JS packages: ESLint, TypeScript and Prettier",
+  "license": "MIT",
+  "author": "Javier Pérez Martín <javier.perez.martin97@gmail.com>",
+  "type": "module",
+  "scripts": {
+    "changeset": "changeset",
+    "changeset:publish": "changeset publish",
+    "changeset:version": "changeset version && pnpm install --no-frozen-lockfile && pnpm format",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "test": "node --test \"packages/*/*.test.js\" \"packages/*/*.test.mjs\""
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^1.0.0",
+    "@changesets/cli": "^3.0.1",
+    "@jperezmart/eslint-config": "workspace:*",
+    "@jperezmart/prettier-config": "workspace:*",
+    "eslint": "^10.3.0",
+    "prettier": "^3.8.3",
+    "typescript": "^6.0.3"
+  },
+  "packageManager": "pnpm@11.25.0",
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "24.20.0",
+      "onFail": "error"
+    }
+  }
+}

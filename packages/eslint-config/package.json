@@ -1,0 +1,46 @@
+{
+  "name": "@jperezmart/eslint-config",
+  "version": "1.0.0",
+  "description": "Shared ESLint flat configs: a Node/TypeScript base and a React variant",
+  "keywords": [
+    "eslint",
+    "eslintconfig",
+    "flat-config",
+    "typescript",
+    "react"
+  ],
+  "homepage": "https://github.com/jperezmart/config/tree/main/packages/eslint-config#readme",
+  "bugs": "https://github.com/jperezmart/config/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jperezmart/config.git",
+    "directory": "packages/eslint-config"
+  },
+  "license": "MIT",
+  "author": "Javier Pérez Martín <javier.perez.martin97@gmail.com>",
+  "type": "module",
+  "exports": {
+    "./base": "./base.js",
+    "./react": "./react.js"
+  },
+  "files": [
+    "base.js",
+    "react.js"
+  ],
+  "dependencies": {
+    "@eslint/js": "^10.0.1",
+    "@typescript-eslint/parser": "^8.59.2",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-react-hooks": "^7.1.1",
+    "eslint-plugin-simple-import-sort": "^13.0.0",
+    "globals": "^17.6.0",
+    "typescript-eslint": "^8.59.2"
+  },
+  "peerDependencies": {
+    "eslint": "^10.3.0",
+    "typescript": ">=5.5.0"
+  },
+  "engines": {
+    "node": "^20.19.0 || ^22.13.0 || >=24"
+  }
+}

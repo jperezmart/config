@@ -1,0 +1,6 @@
+# No catalog here. This repo *publishes* the ranges the other repos catalog, so
+# every range is written out explicitly in each package.json. A `catalog:` entry
+# is resolved away at publish time, which is exactly the trap the vendored copies
+# fell into: they inherited a catalog this repo does not have.
+packages:
+  - 'packages/*'

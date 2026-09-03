@@ -1,0 +1,34 @@
+{
+  "name": "@jperezmart/typescript-config",
+  "version": "1.0.0",
+  "description": "Shared tsconfig bases: a strict default, plus NestJS and Vite variants",
+  "keywords": [
+    "tsconfig",
+    "typescript",
+    "config",
+    "nestjs",
+    "vite"
+  ],
+  "homepage": "https://github.com/jperezmart/config/tree/main/packages/typescript-config#readme",
+  "bugs": "https://github.com/jperezmart/config/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jperezmart/config.git",
+    "directory": "packages/typescript-config"
+  },
+  "license": "MIT",
+  "author": "Javier Pérez Martín <javier.perez.martin97@gmail.com>",
+  "exports": {
+    "./base.json": "./base.json",
+    "./nestjs.json": "./nestjs.json",
+    "./vite.json": "./vite.json"
+  },
+  "files": [
+    "base.json",
+    "nestjs.json",
+    "vite.json"
+  ],
+  "peerDependencies": {
+    "typescript": ">=5.5.0"
+  }
+}

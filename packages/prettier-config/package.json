@@ -1,0 +1,36 @@
+{
+  "name": "@jperezmart/prettier-config",
+  "version": "1.0.0",
+  "description": "Shared Prettier config, with the package.json and JSON sorting plugins",
+  "keywords": [
+    "prettier",
+    "prettier-config",
+    "formatting"
+  ],
+  "homepage": "https://github.com/jperezmart/config/tree/main/packages/prettier-config#readme",
+  "bugs": "https://github.com/jperezmart/config/issues",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jperezmart/config.git",
+    "directory": "packages/prettier-config"
+  },
+  "license": "MIT",
+  "author": "Javier Pérez Martín <javier.perez.martin97@gmail.com>",
+  "type": "module",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js"
+  ],
+  "dependencies": {
+    "prettier-plugin-packagejson": "^3.0.2",
+    "prettier-plugin-sort-json": "^4.2.0"
+  },
+  "peerDependencies": {
+    "prettier": "^3.8.3"
+  },
+  "engines": {
+    "node": ">=14"
+  }
+}
