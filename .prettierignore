@@ -13,3 +13,8 @@ CHANGELOG.md
 # the tension is resolved. `release.yml` is a workflow, which Prettier does not
 # touch, so only this file needs it.
 .changeset/config.json
+
+# Agent skills vendored from mattpocock/skills and pinned by hash in
+# skills-lock.json: formatting them would drift from the recorded hashes.
+.agents
+skills-lock.json
